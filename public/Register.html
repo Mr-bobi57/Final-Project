@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Register</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+    background-image: url('registercvr.png');
+    background-size: cover;
+    background-position: center;  
+    background-repeat: no-repeat; 
+    background-attachment: fixed;  
+    margin: 0%;
+    overflow-x:hidden;
+    color: #fff;
+    }
+
+    /* NAVBAR */
+    .navbar {
+      width: 100%;
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(10px);
+      position: fixed;
+      top: 0;
+    }
+
+    .navbar h1 {
+      margin: 0;
+      font-size: 20px;
+    }
+
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 20px;
+      font-size: 14px;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #00ff7f;
+    }
+
+    /* CENTER BOX */
+    .container {
+      height: 100%;
+      display: flex;
+      padding-top: 75px;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg,  #020617bc 15%, transparent, #020617a2 15%); 
+      
+    }
+
+    .register-box {
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 15px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      width: 380px;
+      padding: 40px 30px;
+      animation: fadeIn 0.8s ease-in-out;
+      margin-bottom: 25px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    .input-box {
+      margin-bottom: 20px;
+    }
+
+    .input-box input {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      outline: none;
+      background: rgba(255, 255, 255, 0.2);
+      color: #fff;
+    }
+
+    .input-box input:focus {
+      background: rgba(255, 255, 255, 0.3);
+      box-shadow: 0 0 10px rgba(255,255,255,0.3);
+    }
+
+    .btn {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #2575fc, #6a11cb);
+      color: #fff;
+      cursor: pointer;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+    }
+
+    .links {
+      text-align: center;
+      margin-top: 15px;
+    }
+
+    .links a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .links a:hover {
+      text-decoration: underline;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <div class="navbar">
+    <h1>EverGreen Futsal</h1>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="Login.html">Login</a>
+      
+    </div>
+  </div>
+
+  <!-- REGISTER FORM -->
+  <div class="container">
+    <div class="register-box">
+      <h2>Register</h2>
+
+      <form>
+        <div class="input-box">
+          <input type="text" placeholder="Full Name" required>
+        </div>
+
+        <div class="input-box">
+          <input type="email" placeholder="Email" required>
+        </div>
+
+        <div class="input-box">
+          <input type="text" placeholder="Username" required>
+        </div>
+
+        <div class="input-box">
+          <input type="password" placeholder="Password" required>
+        </div>
+
+        <div class="input-box">
+          <input type="password" placeholder="Confirm Password" required>
+        </div>
+
+        <button type="submit" class="btn">Create Account</button>
+        <br><br>
+        <hr>
+        <div class="links">
+          <p>Already have an account? <a href="Login.html">Login</a></p>
+        </div>
+      </form>
+    </div>
+  </div>
+
+</body>
+</html>

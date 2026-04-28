@@ -1,43 +1,341 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ever Green Sports Complex</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>React App</title>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Inter',sans-serif;
+scroll-behavior:smooth;
+}
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+body{
+    color:white;
+    background-image: url('bgndimg.png');
+    background-size: cover;
+    background-position: center;  
+    background-repeat: no-repeat; 
+    background-attachment: fixed;  
+    overflow-x:hidden;
+}
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
-  </body>
+/* Loader */
+.loader{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:#020617;
+display:flex;
+align-items:center;
+justify-content:center;
+z-index:9999;
+transition:0.8s;
+}
+
+.loader.hidden{
+opacity:0;
+pointer-events:none;
+}
+
+.loader-circle{
+width:60px;
+height:60px;
+border:4px solid rgba(255,255,255,0.1);
+border-top:4px solid #10b981;
+border-radius:50%;
+animation:spin 1s linear infinite;
+}
+
+@keyframes spin{
+100%{transform:rotate(360deg)}
+}
+
+/* Navbar */
+nav{
+position:fixed;
+display: flex;
+top:0;
+width:100%;
+backdrop-filter: blur(10px);
+background:rgba(0,0,0,0.3);
+border-bottom:1px solid rgba(255,255,255,0.1);
+z-index:100;
+}
+
+.nav-container{
+    max-width:1200px;
+    width:100%; 
+    margin:auto;
+    padding:20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+     text-decoration: none;
+}
+
+
+.btn{
+    display: inline-block;  
+    padding:10px 20px;
+    border-radius:999px;
+    border:none;
+    cursor:pointer;
+    text-decoration:none;   
+}
+.logo{
+font-weight:700;
+}
+
+.nav-links{
+display:flex;
+gap:30px;
+color:#94a3b8;
+}
+.nav-links a{
+    text-decoration:none;
+    color:#94a3b8;
+    font-weight:500;
+    transition:0.3s;
+}
+
+.nav-links a:hover{
+    color:#10b981;
+}
+
+.btn{
+    padding: 10px 20px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-primary{
+    background: linear-gradient(45deg, #00ff7f, #d2d5d2);
+    color: black;
+    margin-right: 10px;
+}
+
+.btn-light{
+    background: linear-gradient(45deg, #0ed0ca, #d2d5d2);
+    color:black;
+}
+
+/* Hero */
+.hero{
+min-height:100vh;
+display:flex;
+align-items:center;
+position:relative;
+overflow:hidden;
+}
+
+.hero-video{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+object-fit:cover;
+z-index:-2;
+}
+
+.hero-overlay{
+position:absolute;
+width:100%;
+height:100%;
+background:linear-gradient(to right, #020617e1 50%, transparent);
+z-index:-1;
+}
+
+.container{
+max-width:1200px;
+margin:auto;
+padding:120px 20px;
+}
+
+.hero h1{
+font-size:64px;
+font-weight:800;
+}
+
+.hero p{
+color:#94a3b8;
+margin-top:20px;
+max-width:500px;
+}
+
+.hero-buttons{
+margin-top:30px;
+display:flex;
+gap:15px;
+}
+
+
+
+/* Location */
+.section{
+padding:120px 150px;
+max-width:1200px;
+background:linear-gradient(to right, #020617e1 50%, transparent);
+height:700px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:40px;
+}
+
+.card{
+padding:30px;
+background:rgba(255,255,255,0.03);
+border:1px solid rgba(255,255,255,0.1);
+border-radius:20px;
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-8px);
+border-color:#10b981;
+}
+
+.contact-box{
+padding:40px;
+border-radius:30px;
+background:rgba(255,255,255,0.03);
+border:1px solid rgba(255,255,255,0.1);
+}
+
+.reveal{
+opacity:0;
+transform:translateY(40px);
+transition:1s;
+}
+
+.reveal.active{
+opacity:1;
+transform:translateY(0);
+}
+
+@media(max-width:900px){
+.hero h1{font-size:42px}
+.grid{grid-template-columns:1fr}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="loader">
+<div class="loader-circle"></div>
+</div>
+
+<nav>
+<div class="nav-container">
+<div class="logo">Ever Green Sports Complex</div>
+<div class="nav-links">
+<a href="#home">Home</a>
+<a href="#location">Location</a>
+<a href="#contact">Contact</a>
+</div>
+<div>
+<a href="#" class="btn btn-primary">Book Now</a>
+<a href="Login.html" class="btn btn-light">Login</a>
+</div>
+</div>
+</nav>
+
+<section id="home" class="hero">
+
+<div class="hero-overlay"></div>
+
+<div class="container">
+<h1>Play like a pro at <span class="gradient">Ever Green</span></h1>
+
+<p>
+A modern sports complex built for unforgettable matches, smooth bookings, and high energy atmosphere.
+</p>
+
+<div class="hero-buttons">
+<button class="btn btn-primary">Book Your Slot</button>
+<a href="https://www.google.com/maps/place/Evergreen+Sports+Complex+Ulapane/@7.0962554,80.5535951,17z/data=!3m1!4b1!4m6!3m5!1s0x3ae3719ba9fc7b71:0xb731a43105689af1!8m2!3d7.0962501!4d80.55617!16s%2Fg%2F11kb5lj_ww?entry=ttu&g_ep=EgoyMDI2MDQxNS4wIKXMDSoASAFQAw%3D%3D" rel="noopener noreferrer"  target="_blank" class="btn btn-light" >See Location</a>
+</div>
+</div>
+</section>
+
+
+
+<section id="location" class="section reveal">
+<h2>Ulapane, Sri Lanka</h2>
+<p style="color:#94a3b8;margin-top:10px">
+Easy access, friendly surroundings, and match-day environment
+</p>
+
+<div class="grid" style="margin-top:40px">
+<div class="card">Safe & Reliable</div>
+<div class="card">Modern Look</div>
+<div class="card">Flexible Hours</div>
+<div class="card">Easy to Find</div>
+</div>
+</section>
+
+<section id="contact" class="section reveal">
+<div class="contact-box">
+<h2>We're ready to help you book your next game</h2>
+<p style="color:#94a3b8;margin:15px 0">
+Reach out for bookings and availability
+</p>
+
+<div class="grid">
+<div class="card">
+Phone<br><br>
++94777852491
+</div>
+
+<div class="card">
+Email<br><br>
+evergreensportscomplex@gmail.com
+</div>
+</div>
+</div>
+</section>
+
+<script>
+
+// loader
+window.addEventListener("load",()=>{
+document.querySelector(".loader").classList.add("hidden")
+})
+
+// scroll reveal
+function reveal(){
+var reveals=document.querySelectorAll(".reveal");
+
+for(var i=0;i<reveals.length;i++){
+var windowHeight=window.innerHeight;
+var elementTop=reveals[i].getBoundingClientRect().top;
+var elementVisible=100;
+
+if(elementTop < windowHeight - elementVisible){
+reveals[i].classList.add("active");
+}
+}
+}
+
+window.addEventListener("scroll",reveal);
+
+</script>
+
+</body>
 </html>
